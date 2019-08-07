@@ -7,7 +7,7 @@ const ll m=100000;
 ll a[maxn][10],ans[10][maxn],r,d,k,query,c[10],sum,cc;
 bool check(ll x,ll y){
     if (x<0&&y>=0) return 1;
-    if (x>y&&x>=0&&x<m) return 1;
+    if (x>0&&y<=0) return 1;
     return 0;
 }
 
@@ -28,10 +28,10 @@ int main(){
             }
             else r+=m*a[i][d]-m/2;
     }
-    scanf("%d",&query);
+    scanf("%lld",&query);
     assert(query >= 1 && query <= 1500);
     while (query--){
-        scanf("%d%lld",&d,&k);
+        scanf("%lld%lld",&d,&k);
         assert(d >= 1 && d <= 9);
         assert(k >= 0 && k <= 1000000000000000000LL);
         r=c[d]-1; while (r>=0&&ans[d][r]>k) r--;

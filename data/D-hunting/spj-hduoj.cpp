@@ -1,8 +1,17 @@
 #include <climits>
 #include <vector>
 #include <cstdlib>
+#include <cstdio>
 #include <fstream>
 #include <iostream>
+
+[[noreturn]] void usage(const char* name) {
+    fprintf(stderr,
+        "Usage: %s input_file < user_output | diff - ans_file\n"
+        "This is the special judge for Acesrc and Hunting.\n"
+        , name);
+    std::exit(EXIT_FAILURE);
+}
 
 [[noreturn]] void wa(std::string reason = "") {
     std::cout << "[SPJ] Wrong Answer" << std::endl;
@@ -56,6 +65,7 @@ void check(int m, int n) {
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) usage(argv[0]);
     std::ifstream fin(argv[1]);
     int T; fin >> T;
     while (T--) {
@@ -64,4 +74,3 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
-
