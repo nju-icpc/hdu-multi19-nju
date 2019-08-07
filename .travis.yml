@@ -1,0 +1,7 @@
+language: c++
+dist: bionic 
+sudo: false
+script: 
+    - ./clean.sh
+    - ./test.sh
+
