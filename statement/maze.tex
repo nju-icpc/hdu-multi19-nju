@@ -1,0 +1,18 @@
+\begin{Problem}{Andy and Maze}{15}
+
+Andy is a famous explorer at Nanjing University second to none. One day he was trapped in a maze. The maze consisted of several rooms, and there was a precious gem in each room. There were also some bidirectional roads connecting some pairs of these rooms. It took some time to travel along the road in either direction.
+
+Andy was in a room, but he didn't know which room he was in. Suddenly, he heard a low voice, saying that, ``if you want to get out of the maze, you must collect $k$ gems." Andy wanted to know, what was the minimum possible time to get out of the maze, or it was impossible at all? Note that he couldn't visit the same room more than once.
+
+\subsection*{Input}
+
+The first line of input consists of a single integer $T$ $(1 \leq T \leq 30)$, denoting the number of test cases. Each test case starts with a line of three integers $n, m, k$ $(2 \leq n \leq 10^4, 1 \leq m \leq 10^4, 2 \leq k \leq 6)$, denoting the number of rooms and the number of roads in the maze, and the number of gems he needed collect, respectively. The next $m$ lines, each containing three intergers $u, v, t$ $(1 \leq u, v \leq n, u \neq v, 1 \leq t \leq 10^8)$, specifying a road connecting the $u$th and the $v$th rooms, which takes $t$ minutes to travel in either direction. No two roads connect the same pair of rooms.
+There are at most 5 test cases with $\max\{n, m\} > 100$.
+
+\subsection*{Output}
+
+For each test case, print the minimum possible time in minute to get out of the maze in one line. If it was impossible to get out of the maze, print \texttt{impossible} instead.
+
+\exmpv{maze}
+
+\end{Problem}

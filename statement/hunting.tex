@@ -1,0 +1,23 @@
+\begin{Problem}{Acesrc and Hunting}{2}
+
+Acesrc is a famous hunter at Nanjing University second to none. Recently, he set $n \times m$ traps in Yangshan Park, a park near Nanjing University Xianlin Campus, arranged in $n$ rows and $m$ columns. The rows are numbered $1$ through $n$ from bottom to up, and the columns are numbered $1$ through $m$ from left to right. The distance between two adjacent traps, both horizontally and vertically, is 1 meter.
+
+Today, Acesrc happily finds that every trap he set has captured an animal. He decides to collect these hunted animals to make roast meat for his friends. However, collecting these animals normally is too boring, so he decides to find a route following the rules below:
+\begin{itemize}
+\item Acesrc can choose any trap to start; every time he collects the animal in the trap, and moves to some unvisited trap until all animals captured are collected;
+\item The Euclidean distance he moves from one trap to the next trap should be between 1 meter and 3 meters exclusive; that is, the distance should be strictly greater than 1 meter and strictly less than 3 meters.
+\end{itemize}
+
+Acesrc has quickly collected all animals. Roo wonders how Acesrc collected these animals, but Acesrc buttons up his lip. Can you give a possible route to collect all the animals?
+
+\subsection*{Input}
+
+The first line of input consists of a single integer $T$ $(1 \leq T \leq 240)$, the number of test cases. Each test case is a single line of two integers $n, m$ $(1 \leq n, m \leq 100)$, denoting the size of the trap matrix.
+
+\subsection*{Output}
+
+For each test case, if it is impossible to find any valid route, print \texttt{NO} in a single line; otherwise, print \texttt{YES} in one line, followed by $n \times m$ lines describing the route, each of these lines containing two integers $x, y$ $(1 \leq x \leq n, 1 \leq y \leq m)$, denoting the position of a trap visited. If multiple solutions exist, print any.
+
+\exmpv{hunting}
+
+\end{Problem}
