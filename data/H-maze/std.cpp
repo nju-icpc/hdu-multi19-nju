@@ -5,7 +5,7 @@ int n, m, k;
 vector<pair<int, int>> adj[10005];
 int dp[10005][65];
 int c[10005];
-mt19937 gen(time(NULL));
+mt19937 gen(233);
 
 int iteration() {
     memset(dp, -1, sizeof(dp[0]) * (n + 1));
@@ -38,7 +38,7 @@ int main() {
             adj[v].emplace_back(u, w);
         }
         int ans = 0;
-        for (int iter = 0; iter < 300; iter++) ans = max(ans, iteration());
+        for (int iter = 0; iter < 250; iter++) ans = max(ans, iteration());
         if (ans == 0) puts("impossible"); else printf("%d\n", ans);
     }
     return 0;

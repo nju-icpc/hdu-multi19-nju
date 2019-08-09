@@ -1,3 +1,7 @@
+/*
+    This std code doesn't compile on HDUOJ. If you need a code that compiles
+  on HDUOJ, please see lhy.cpp.
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
