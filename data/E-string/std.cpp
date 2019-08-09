@@ -87,6 +87,10 @@ int main() {
 		scanf("%lld",&K);
         scanf("%s",A.c+1); ans=0;
         L=strlen(A.c+1);
+        if (K == 1) {
+            printf("%lld\n", 1ll * L * (L + 1) / 2);
+            continue;
+        }
         for (i=1;i<=L;i++) B.c[L-i+1]=A.c[i];
         A.sa(),B.sa();
         A.geth(),B.geth();

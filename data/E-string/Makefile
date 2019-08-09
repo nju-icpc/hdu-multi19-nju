@@ -7,6 +7,7 @@ CXXFLAGS = -O2 -Wall -ggdb -std=c++11
 %.exec : %.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test : validator.exec std.exec
+test : validator.exec std.exec participant.exec
 	./validator.exec < e.in
 	time ./std.exec < e.in | diff - e.out
+	time ./participant.exec < e.in | diff - e.out
