@@ -36,9 +36,10 @@ int main(int argc, char *argv[]) {
                     "mysterious character: row=%d, T=%d", i, t);
             g[i] = "." + g[i] + ".";
         }
-        int x, y;
+        int x = -1, y = -1;
         for (x = 1; x <= n; x++) for (y = 1; y <= m; y++)
             if (g[x][y] == '#') goto cont;
+        ensuref(x != -1, "input is empty (T=%d)", t);
     cont:
         dfs<'#'>(x, y);
         dfs<'.'>(0, 0);
