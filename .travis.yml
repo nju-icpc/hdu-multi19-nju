@@ -1,7 +1,11 @@
 language: c++
 dist: bionic 
 sudo: false
+before_install:
+    - sudo apt update
+    - sudo apt install dos2unix
 script: 
     - ./clean.sh
+    - ./to_unix.sh
     - ./test.sh
 
