@@ -4,7 +4,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     registerValidation(argc, argv);
-    int T = inf.readInt(1, 30, "T"); inf.readEoln();
+    int T = inf.readInt(1, 35, "T"); inf.readEoln();
     int bigcase = 0;
     for (int t = 1; t <= T; t++) {
         int n = inf.readInt(1, 10000, "n"); inf.readSpace();
@@ -16,8 +16,9 @@ int main(int argc, char *argv[]) {
             int a = inf.readInt(1, n, "a"); inf.readSpace();
             int b = inf.readInt(1, n, "b"); inf.readSpace();
             inf.readInt(1, 100000000, "w"); inf.readEoln();
+            if (a > b) swap(a, b);
             ensure(a != b);
-            ensure(edges.count({a, b}) == 0);
+            ensuref(edges.count({a, b}) == 0, "duplicated edges (T=%d)", t);
             edges.emplace(a, b);
         }
     }
