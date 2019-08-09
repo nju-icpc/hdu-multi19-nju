@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     int T = inf.readInt(1, 35, "T"); inf.readEoln();
     int bigcase = 0;
     for (int t = 1; t <= T; t++) {
-        int n = inf.readInt(1, 10000, "n"); inf.readSpace();
+        int n = inf.readInt(2, 10000, "n"); inf.readSpace();
         int m = inf.readInt(1, 10000, "m"); inf.readSpace();
         if (max(n, m) > 100) bigcase++;
         inf.readInt(2, 6, "k"); inf.readEoln();

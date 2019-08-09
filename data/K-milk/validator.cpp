@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
         }
     }
     inf.readEof();
-    ensure(totn <= 54000000);
+    ensure(totn <= 6000000);
     fprintf(stderr, "Total n: %d\n", totn);
     return 0;
 }
