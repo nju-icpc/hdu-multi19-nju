@@ -4,7 +4,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     registerValidation(argc, argv);
-    int T = inf.readInt(1, 3, "T"); inf.readEoln();
+    int T = inf.readInt(1, 4, "T"); inf.readEoln();
     for (int t = 1; t <= T; t++) {
         int n = inf.readInt(1, 300000, "n"); inf.readSpace();
         int m = inf.readInt(1, 300000, "m"); inf.readEoln();
