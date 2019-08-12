@@ -7,7 +7,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<ll,ll> pi;
 const ll inf=1e16;
-ll a[maxn],n,k,query,ans,p[maxn],q[maxn],d[maxn]; //p[i]?????????? q[i]??????????
+ll a[maxn],n,k,query,ans,p[maxn],q[maxn],d[maxn];
 vector <int> h[maxn];
 pi f[maxn],g[maxn];
 

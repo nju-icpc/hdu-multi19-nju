@@ -14,49 +14,38 @@ using namespace std;
 int t , n , m , lim , a[ MAXN ] , dep[ MAXN ] , use[ MAXN ] , size[ MAXN ] , have[ MAXLIM ] , maxdep , rec;
 vector < int > linker[ MAXN ];
 
-int memory_pool[ 1200000 ] , now_pos;
-
-inline int * get_memory( int x )
-{
-	now_pos += x;
-	return memory_pool + now_pos - x;
-}
-
 struct vec
 {
-	int * a , * b;
+    vector<int> v;
 	
 	void assign( int c )
 	{
-		a = b = get_memory( c + 1 );
+        v.reserve(c + 1);
 	}
 	
 	void set( int c )
 	{
-		assign( c );
-		b += c;
-		for( int * i = a ; i <= b ; i++ )
-			* i = 0;
+        v.assign(c + 1, 0);
 	}
 	
 	void push_back( int x )
 	{
-		* b++ = x;
+		v.push_back(x);
 	}
 	
 	void clear()
 	{
-		b = a;
+		v.clear();
 	}
 	
 	int size()
 	{
-		return b - a;
+		return v.size();
 	}
 	
 	int & operator[] ( int i )
 	{
-		return a[i];
+		return v[i];
 	}
 	
 } array;
@@ -95,7 +84,8 @@ struct Block
 	
 	void modify1( int l , int r , int x )
 	{
-		l = lower_bound( array.a , array.b , l ) - array.a , r = upper_bound( array.a , array.b , r ) - array.a - 1;
+		l = lower_bound( array.v.begin() , array.v.end() , l ) - array.v.begin();
+        r = upper_bound( array.v.begin() , array.v.end() , r ) - array.v.begin() - 1;
 		if( l > r ) return;
 		if( belong( l ) == belong( r ) )
 			for( int i = l ; i <= r ; i++ )
@@ -159,12 +149,12 @@ void dfs( int x )
 	r[x] = tot; 
 }
 
-inline bool cmp( const int & a , const int & b )
+bool cmp( const int & a , const int & b )
 {
 	return l[a] < l[b];
 }
 
-inline void addedge( int x , int y )
+void addedge( int x , int y )
 {
 	linker[x].push_back( y );
 }
@@ -252,7 +242,7 @@ int main()
 	while( t-- )
 	{
 		n = read() , m = read();
-		maxdep = tot = now_pos = 0;
+		maxdep = tot = 0;
 		HLD1.clear();
 		HLD2.clear();
 		array.clear();
@@ -295,12 +285,10 @@ int main()
 		for( int i = 1 ; i <= n ; i++ )
 			if( use[i] )
 				array.push_back( i );
-		sort( array.a , array.b , cmp );
-		rec = now_pos;
+		sort( array.v.begin() , array.v.end() , cmp );
 		for( int i = 1 ; i <= lim ; i++ )
 			if( have[i] )
 			{
-				now_pos = rec;
 				for( int j = 1 , now = 1 % i ; j <= maxdep ; j++ )
 				{
 					block[ now ].size += size[j];
@@ -322,7 +310,6 @@ int main()
 				for( int j = 0 ; j < i ; j++ )
 					block[j].clear();
 			}
-		now_pos = rec;
 		for( int i = 1 ; i <= n ; i++ )
 			block[ dep[i] ].size++;
 		for( int i = 1 ; i <= maxdep ; i++ )
